@@ -188,8 +188,9 @@ namespace UniJoy
                 Directory.CreateDirectory(Application.StartupPath + @"\results\");
 
             //adding background image to the window.
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\unityWallpaper.jpg");
-            this._varyingControlGroupBox.BackgroundImage = Image.FromFile(Application.StartupPath + @"\unityWallpaper.jpg");
+            // TODO: find files and set as background
+            //this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\unityWallpaper.jpg");
+            //this._varyingControlGroupBox.BackgroundImage = Image.FromFile(Application.StartupPath + @"\unityWallpaper.jpg");
         }
         #endregion CONSTRUCTORS
 
@@ -1459,6 +1460,7 @@ namespace UniJoy
             if (selectedIndex > 0)
             {
                 //take the selected item.
+                // TODO: solve the NullException
                 VaryingItem selectedCombination = _varyingListBox.SelectedItem as VaryingItem;
 
                 //set the _acrossVectorValuesGenerator cross varying values
@@ -1833,12 +1835,13 @@ namespace UniJoy
                     (item as RadioButton).Enabled = false;
                 }
 
-                //todo: add exception if not of these types
+                //todo: add exception if not of these types/
             }
 
             //filter only the variables where the status is  -1 (for the checkboxes for the gui).
             //TODO: Moog
             IEnumerable<string> variablesList = _variablesList._variablesDictionary.Keys.Where(name => int.Parse(_variablesList._variablesDictionary[name]._description["status"].MoogParameter) == -1);
+            /*
             foreach (string varName in variablesList)
             {
                 if (_buttonbasesDictionary[varName] is RadioButton)
@@ -1862,6 +1865,7 @@ namespace UniJoy
                     }
                 }
             }
+            */
 
             //update if right equals to left according to the checkbox status.
             UpdateRightTextBoxesAvailability(_checkBoxRightAndLeftSame.Checked);

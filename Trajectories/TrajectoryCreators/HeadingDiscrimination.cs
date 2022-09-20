@@ -162,7 +162,7 @@ namespace Trajectories.TrajectoryCreators
         }
 
         /// <summary>
-        /// Computes the trajectoy tuple (for the ratHouseTrajectory and for the landscapeHouseTrajectory).
+        /// Computes the trajectory tuple (for the ratHouseTrajectory and for the landscapeHouseTrajectory).
         /// </summary>
         /// <param name="index">The index from the crossVaryingList to take the attributes of he varying variables from.</param>
         /// <returns>The trajectory tuple (for the ratHouseTrajectory and for the landscapeHouseTrajectory). </returns>
@@ -336,10 +336,12 @@ namespace Trajectories.TrajectoryCreators
                         Trig.Cos(amplitude) *
                         (Trig.Sin(azimuth) * Trig.Cos(elevation) +
                         -Trig.Cos(azimuth) * Trig.Sin(tilt) * Trig.Sin(elevation));
+            // ~(Michael Saar)~ - the Y axis is NOT inverted in the Moog system (at least not in the way the trajectory is calculated here). Therefore, I commented the next line. 
             //the axis for y and z are opposite in the Moog.
-            yM = -yM;
+            //yM = -yM;
 
             double zM = -Trig.Sin(amplitude) * Trig.Sin(tilt) - Trig.Cos(amplitude) * Trig.Sin(elevation) * Trig.Cos(tilt);
+            // ~(Michael Saar)~ - the Y axis is NOT inverted in the Moog system (at least not in the way the trajectory is calculated here). Therefore, I commented the next line.
             //the axis for y and z are opposite in the Moog.
             zM = -zM;
 

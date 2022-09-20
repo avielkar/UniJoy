@@ -20,6 +20,8 @@
 #include "ConvertEnum.h"
 #include <chrono>
 #include <thread>
+#include <iostream>
+
 
 DWORD WINAPI TransmitThread(LPVOID lpThreadParameter);
 DWORD WINAPI ReceiveThread(LPVOID lpThreadParameter);
@@ -183,6 +185,13 @@ bool CMBCInterface::Open(CConfigFile* pConfig)
 	pszParam = pConfig->Read("MBC_Ethernet", "SCCPort", "16386");
 	m_iSCCPort = atoi(pszParam);
 
+    // ~(Michael Saar) --- DEBUG
+    std::cout << "MBC IP Address: " << m_szMBCIpAddress << std::endl;
+    std::cout << "MBC Port: " << m_iMBCPort << std::endl;
+    std::cout << "SCC IP Address: " << m_szSCCIpAddress << std::endl;
+    std::cout << "SCC Netmask: " << m_szSCCNetmask << std::endl;
+    std::cout << "SCC Port: " << m_iSCCPort << std::endl;
+    // ~(Michael Saar) --- DEBUG END
 	LogWriteLn("Opening Ethernet Sockets");
 	LogWriteLn("Host(%s:%d) MBC(%s:%d)", m_szSCCIpAddress, m_iSCCPort, m_szMBCIpAddress, m_iMBCPort);
 

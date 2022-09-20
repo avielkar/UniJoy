@@ -41,7 +41,7 @@ namespace UniJoy.Network
 
         public bool TrySendCommand(string commandName, string commandValue)
         {
-            _client.WriteLine($"{commandName}{UnityEngineCommands.CommandKeyValueSeperator}{commandValue}");
+            //_client.WriteLine($"{commandName}{UnityEngineCommands.CommandKeyValueSeperator}{commandValue}");
             return  true;
         }
     }
